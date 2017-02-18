@@ -38,7 +38,7 @@ class Donor(models.Model):
 class Portfolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
-    category = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, related_name="portfolios")
 
     # TODO add this line with correct method call
     # image = models.UploadField()
