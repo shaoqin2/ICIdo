@@ -1,24 +1,45 @@
-# HackingChicago
-HackingChicago Project for GoodCity Chicago
+Before Login :
+
+
+Overall statistics of donations
+
+Current missions
+
+Link to donate
 
 
 
-Server:
+Login :
 
 
-Django:
-models(look at the data and have a design)	
-PostgreSQL
+Email address that you used to donate to Goodcity Chicago
+
+Password Generated and sent to above email address
 
 
-Front end:
-Django templating language
-What we’re showing to the users:
 
-Their Name
-Their history of donation:
+After Login :
 
-Individual donation objects in a list
-How their donation is used:
 
-From organization if possible
+List of Donations made under that email address 
+
+
+Breakdown of data:
+
+
+Amount
+
+Date
+
+Organization
+
+(others?)
+
+
+
+Need to handle recurring donations as well: different type of object?
+
+
+
+Link to donate again
+
