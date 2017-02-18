@@ -9,15 +9,8 @@ from forum.models import Event
 # Create your views here.
 @login_required(login_url='/login/')
 def display_category_events(request, param):
-    categories = #intercept part of the url to use for
-    #^'/<regular expression>'
+    pass
 
 
-
-# redirect to the homepage
-def home(request):
-    dict = {}
-    result = 'mainsite.Category'.objects.all()[:3]
-    dict['result'] = result
-    return render(request, 'HomePage.html', dict)
-
+def forum_home(request):
+    return HttpResponse('<h1>forum</h1>')
