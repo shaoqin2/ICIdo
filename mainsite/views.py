@@ -8,7 +8,7 @@ from .models import *
 
 def home(request):
     dict = {}
-    result = Category.getThreePopular()
+    result = Category.objects.all()[:3]
     dict['result'] = result
     return render(request, 'HomePage.html', dict)
 
