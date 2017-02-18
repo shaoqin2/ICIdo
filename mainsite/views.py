@@ -3,11 +3,17 @@ from django.contrib.auth import authenticate, login as LOGIN, logout as LOGOUT
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from mainsite import forms
+from .models import *
 
 
 def home(request):
     dict = {}
+    result = Category.objects.all()[:3]
+    dict['result'] = result
     return render(request, 'HomePage.html', dict)
+
+def user_profile(request):
+    pass
 
 def logout(request):
     return HttpResponse('<h1>LoOut</h1>')

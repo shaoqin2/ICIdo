@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Event(models.Model):
@@ -11,7 +10,7 @@ class Event(models.Model):
     categories = models.ManyToManyField('mainsite.Category')
 
     # internal use only
-    haveToHost = models.BooleanField()
+    must_host = models.BooleanField()
 
     # if haveToHost, need these fields
     affiliation = models.CharField(max_length=100, blank=True)

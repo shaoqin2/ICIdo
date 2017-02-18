@@ -1,10 +1,17 @@
-from django.db import models
+from djang.db import models
 from django.contrib.auth.models import User
 
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
+
+    amount_raised = models.FloatField()
+
+
+    # def getThreePopular(self):
+        # l = []
+        # return l
 
     def __str__(self):
         return self.name
@@ -17,6 +24,7 @@ class Donor(models.Model):
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=20, blank=True)
     interest = models.ManyToManyField(Category)
+    affiliation = models.CharField(max_length=100)
 
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
@@ -29,10 +37,10 @@ class Donor(models.Model):
     # # staff maybe
 
 
-class Profolio(models.Model):
+class Portfolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
-    category = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category)
 
     # TODO add this line with correct method call
     # image = models.UploadField()
@@ -44,20 +52,17 @@ class Profolio(models.Model):
 class Donation(models.Model):
     donor = models.OneToOneField(Donor)
 
-    profolio = models.OneToOneField(Profolio)
+    portfolio = models.OneToOneField(Portfolio)
     amount = models.FloatField()
     date = models.DateField()
     honor = models.TextField(max_length = 1000)
 
     # TODO revise to change of the recurrence
-    recurrence  = models.CharField(max_length=50)
+    recurrence = models.CharField(max_length=50)
 
     def __str__(self):
-        return "{} from {} to {}".format(self.amount, self.donor, self.profolio)
+        return "{} from {} to {}".format(self.amount, self.donor, self.portfolio)
 
+    # TODO override the save method to automatically update the total amount of a portfolio
     
-
-
-
-
 
