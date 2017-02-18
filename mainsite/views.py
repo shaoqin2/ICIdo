@@ -3,7 +3,8 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('<h1>Working</h1>')
+    dict = {}
+    return render(request, 'HomePage.html', dict)
 
 def login(request):
     return HttpResponse('<h1>Login</h1>')
