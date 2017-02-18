@@ -1,7 +1,7 @@
 Category Info:
 name : string
 description : string
-portfolios : Portfolio object list
+portfolio_set.all() : Portfolio object list
 
 Donation Object Info:
 donor : User object
