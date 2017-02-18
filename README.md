@@ -14,8 +14,11 @@ PostgreSQL
 Front end:
 Django templating language
 What we’re showing to the users:
-Name
+
+Their Name
 Their history of donation:
+
 Individual donation objects in a list
 How their donation is used:
+
 From organization if possible
