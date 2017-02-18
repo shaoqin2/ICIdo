@@ -1,10 +1,12 @@
-from django.db import models
+from djang.db import models
 from django.contrib.auth.models import User
 
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
+
+    amount_raised = models.FloatField()
 
 
     # def getThreePopular(self):
@@ -60,3 +62,7 @@ class Donation(models.Model):
 
     def __str__(self):
         return "{} from {} to {}".format(self.amount, self.donor, self.portfolio)
+
+    # TODO override the save method to automatically update the total amount of a portfolio
+    
+
