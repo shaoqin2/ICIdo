@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ICIdo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'investChicago',
+        'NAME': 'investchicago',
         'USER': 'bobby',
         'PASSWORD': 'Bbysq981015',
         'HOST': 'localhost',
