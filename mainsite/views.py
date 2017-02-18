@@ -20,6 +20,9 @@ def home(request):
 
     return render(request, 'HomePage.html', dict)
 
+def user_profile(request):
+    pass
+
 def logout(request):
     return HttpResponse('<h1>LoOut</h1>')
 
