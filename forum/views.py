@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+# url.py /forum/<Catagory>
+# how django url.py 
