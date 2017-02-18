@@ -8,20 +8,12 @@ class Event(models.Model):
     brief = models.CharField(max_length=500)
     link = models.URLField(blank=True)
     # not to display
-    categories = models.ManyToManyFields('mainsite.Category')
+    categories = models.ManyToManyField('mainsite.Category')
 
     # internal use only
-    haveToHost = models.BooleanField()
+    must_host = models.BooleanField()
 
     # if haveToHost, need these fields
     affiliation = models.CharField(max_length=100, blank=True)
     description = models.CharField(max_length=5000, blank=True)
 
-
-#remove once done referencing:
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(max_length=5000)
-
-    def __str__(self):
-        return self.name

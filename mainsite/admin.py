@@ -5,9 +5,9 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Category, CategoryAdmin)
 
-class ProfolioAdmin(admin.ModelAdmin):
+class PortfolioAdmin(admin.ModelAdmin):
     filter_horizontal = ('category',)
-admin.site.register(Profolio, ProfolioAdmin)
+admin.site.register(Portfolio, PortfolioAdmin)
 
 class DonationAdmin(admin.ModelAdmin):
     pass
