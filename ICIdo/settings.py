@@ -20,12 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r^3cz#7q68^q%%+n+pi3ouxyh))j)9uje5y61ohpkj*!!*@vza'
+with open('ICIdo/secret.txt', 'r') as f:
+    key = f.read()
+    SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0:8000']
 
 
 # Application definition
@@ -72,11 +74,14 @@ WSGI_APPLICATION = 'ICIdo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'investChicago',
+        'USER': 'bobby',
+        'PASSWORD': 'Bbysq981015',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
