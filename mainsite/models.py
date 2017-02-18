@@ -26,6 +26,19 @@ class Donor(models.Model):
     interest = models.ManyToManyField(Category)
     affiliation = models.CharField(max_length=100)
 
+    def getDonation(self):
+        dict_data = {}
+
+        # query all the donations made by this user and add them up for display
+        # potentially cache this in a non relational database
+        for donation in self.donation_set.all():
+            for catagory in donation.catagory_set.all: 
+                if catagory.name not in dict_cata:
+                    dict_data[catagory.name] = donation.amount
+                else:
+                    dict_data[catagory.name] += donation.amount
+            
+
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
@@ -40,7 +53,7 @@ class Donor(models.Model):
 class Portfolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
-    categories = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category)
 
     # TODO add this line with correct method call
     # image = models.UploadField()
@@ -50,9 +63,9 @@ class Portfolio(models.Model):
 
 
 class Donation(models.Model):
-    donor = models.OneToOneField(Donor)
+    donor = models.ForeignKey(Donor)
 
-    portfolio = models.OneToOneField(Portfolio)
+    portfolio = models.ForeignKey(Portfolio)
     amount = models.FloatField()
     date = models.DateField()
     honor = models.TextField(max_length = 1000)

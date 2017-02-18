@@ -10,6 +10,14 @@ def home(request):
     dict = {}
     result = Category.objects.all()[:3]
     dict['result'] = result
+    try:
+        username = request.user
+        donor = Donor.objects.get(username=username)
+        dict['logged_in'] = True
+        dict['catagory_data'] = donor.getDonation()
+    except Donor.DoesNotExist:
+        dict['logged_in'] = False
+
     return render(request, 'HomePage.html', dict)
 
 def user_profile(request):
@@ -33,3 +41,6 @@ def login(request):
             else:
                     error = "Please input valid credentials"
     return render(request,"Login.html",{"form":form,"error":error})
+
+def signup(request):
+    return HttpResponse('<h1>Sign up </h1>')
