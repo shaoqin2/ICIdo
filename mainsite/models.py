@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
@@ -35,6 +33,9 @@ class Profolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
     category = models.ManyToManyField(Category)
+
+    # TODO add this line with correct method call
+    # image = models.UploadField()
 
     def __str__(self):
         return self.name
