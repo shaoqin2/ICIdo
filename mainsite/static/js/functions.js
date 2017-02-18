@@ -17,3 +17,8 @@ openTimeTalents = function() {  window.open("https://goodcitychicago.org/volunte
 openPortfolioSite = function() {
     window.open("http://investchicago.org/");
 }
+
+$('.nav.navbar-nav > li').on('click', function(e) {
+    $('.nav.navbar-nav > li').removeClass('active');
+    $(this).addClass('active');
+});    
