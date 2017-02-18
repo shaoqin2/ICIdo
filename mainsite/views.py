@@ -3,10 +3,13 @@ from django.contrib.auth import authenticate, login as LOGIN, logout as LOGOUT
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from mainsite import forms
+from .models import *
 
 
 def home(request):
     dict = {}
+    result = Category.getThreePopular()
+    dict['result'] = result
     return render(request, 'HomePage.html', dict)
 
 def logout(request):

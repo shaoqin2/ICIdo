@@ -6,6 +6,11 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
 
+
+    # def getThreePopular(self):
+        # l = []
+        # return l
+
     def __str__(self):
         return self.name
 
@@ -16,7 +21,7 @@ class Donor(models.Model):
     last_name = models.CharField('LastName', max_length=40)
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=20, blank=True)
-    interests = models.ManyToManyField(Category)
+    interest = models.ManyToManyField(Category)
     affiliation = models.CharField(max_length=100)
 
     def __str__(self):
@@ -33,7 +38,7 @@ class Donor(models.Model):
 class Portfolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
-    categories = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category)
 
     # TODO add this line with correct method call
     # image = models.UploadField()
@@ -54,4 +59,4 @@ class Donation(models.Model):
     recurrence = models.CharField(max_length=50)
 
     def __str__(self):
-        return "{} from {} to {}".format(self.amount, self.donor, self.profolio)
+        return "{} from {} to {}".format(self.amount, self.donor, self.portfolio)
