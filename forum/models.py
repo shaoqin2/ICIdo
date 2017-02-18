@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-#from mainsite.models import Category
 
 
 class Event(models.Model):
@@ -9,7 +8,7 @@ class Event(models.Model):
     brief = models.CharField(max_length=500)
     link = models.URLField(blank=True)
     # not to display
-    categories = models.ManyToManyFields(Category)
+    categories = models.ManyToManyFields('mainsite.Category')
 
     # internal use only
     haveToHost = models.BooleanField()
