@@ -1,8 +1,8 @@
 from django.test import TestCase
-from mainsite.models import Portfolio
-from mainsite.models import Category
-from mainsite.models import Donor
-from mainsite.models import Donation
+from models import Portfolio
+from models import Category
+from models import Donor
+from models import Donation
 
 
 # Create your tests here.
