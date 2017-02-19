@@ -13,4 +13,4 @@ def display_category_events(request, param):
 
 
 def forum_home(request):
-    return HttpResponse('<h1>forum</h1>')
+    return render(request, 'Forum.html')
