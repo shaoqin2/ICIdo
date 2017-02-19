@@ -8,7 +8,6 @@ donor = Donor()
 donor.first_name = "FirstName"
 donor.last_name = "LastName"
 
-print donor
 print Donor.__str__(donor)
 
 
