@@ -40,7 +40,7 @@ def login(request):
                             error = "Invalid Password or Username"
             else:
                     error = "Please input valid credentials"
-    return render(request,"Login.html",{"form":form,"error":error})
+    return render(request,"UserLogin.html",{"form":form,"error":error})
 
 def signup(request):
     return HttpResponse('<h1>Sign up </h1>')
