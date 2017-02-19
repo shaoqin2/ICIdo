@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
+    amount_raised = models.FloatField(default=0)
 
 
     # def getThreePopular(self):
@@ -67,6 +68,7 @@ class Donation(models.Model):
     amount = models.FloatField()
     date = models.DateField()
     honor = models.TextField(max_length = 1000)
+    usage = models.TextField(max_length = 1000, blank=True, default="")
 
     # TODO revise to change of the recurrence
     recurrence = models.CharField(max_length=50)
@@ -75,5 +77,3 @@ class Donation(models.Model):
         return "{} from {} to {}".format(self.amount, self.donor, self.portfolio)
 
     # TODO override the save method to automatically update the total amount of a portfolio
-    
-

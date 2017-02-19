@@ -1,5 +1,4 @@
-from models import Donor
-from models import Donation
+from models import *
 
 
 donation = Donation()
@@ -8,6 +7,6 @@ donor = Donor()
 donor.first_name = "FirstName"
 donor.last_name = "LastName"
 
-print Donor.__str__(donor)
+print(donor)
 
 
