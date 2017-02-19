@@ -147,86 +147,31 @@
   <table class="table forum table-striped">
     <thead>
       <tr>
-        <th class="cell-stat"></th>
-        <th>
-          <h3>Categories</h3>
-        </th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
-        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Brief</th>
+        <th>Link</th>
+        <th>Catagories</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
+      {% for event in events %}
       <tr>
-        <td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
-        <td>
-          <h4><a href="#">Frequently Asked Questions</a><br><small>Some description</small></h4>
+        <td>{{event.title}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.brief}}</td>
+        <td style="width:8%;"><a href={{event.link}}>Link to the Event</a></td>
+        <td style="width:12%;">
+        {% for catagory in event.categories.all %}
+            {{catagory.name}}
+            <br>
+        {% endfor %}
         </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">9 542</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">89 897</a></td>
-        <td class="hidden-xs hidden-sm">by <a href="#">John Doe</a><br><small><i class="fa fa-clock-o"></i> 3 months ago</small></td>
+
+        <td>{{event.description}}</td>
       </tr>
-      <tr>
-        <td class="text-center"><i class="fa fa-exclamation fa-2x text-danger"></i></td>
-        <td>
-          <h4><a href="#">Important changes</a><br><small>Category description</small></h4>
-        </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">6532</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">152123</a></td>
-        <td class="hidden-xs hidden-sm">by <a href="#">Jane Doe</a><br><small><i class="fa fa-clock-o"></i> 1 years ago</small></td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table forum table-striped">
-    <thead>
-      <tr>
-        <th class="cell-stat"></th>
-        <th>
-          <h3>Portfolio</h3>
-        </th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
-        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="text-center"><i class="fa fa-heart fa-2x text-primary"></i></td>
-        <td>
-          <h4><a href="#">Veterans</a><br><small>Category description</small></h4>
-        </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">6532</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">152123</a></td>
-        <td class="hidden-xs hidden-sm">by <a href="#">Jane Doe</a><br><small><i class="fa fa-clock-o"></i> 3 months ago</small></td>
-      </tr>
-      <tr>
-        <td class="text-center"><i class="fa fa-magic fa-2x text-primary"></i></td>
-        <td>
-          <h4><a href="#">Haha</a><br><small>Category description</small></h4>
-        </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">6532</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">152123</a></td>
-        <td class="hidden-xs hidden-sm">by <a href="#">Jane Doe</a><br><small><i class="fa fa-clock-o"></i> 1 years ago</small></td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table forum table-striped">
-    <thead>
-      <tr>
-        <th class="cell-stat"></th>
-        <th>
-          <h3>Open discussion</h3>
-        </th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
-        <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td colspan="4" class="center">No topics have been added yet.</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
