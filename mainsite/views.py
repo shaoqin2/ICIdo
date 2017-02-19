@@ -17,8 +17,10 @@ def home(request):
 
 def user_profile(request):
     donor = Donor.objects.get(username=request.user)
-    all_donation = Donation.objects.filter(donor=donor)
+    all_donation = Donation.objects.filter(donor=donor).order_by('-date')
+
     d = {}
+    d['portfolio'] = Portfolio.objects.all()[:4]
     d['donate_history'] = all_donation
     return render(request, 'Profile.html', d)
 
