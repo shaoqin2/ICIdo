@@ -10,7 +10,7 @@ class PortfolioAdmin(admin.ModelAdmin):
 admin.site.register(Portfolio, PortfolioAdmin)
 
 class DonationAdmin(admin.ModelAdmin):
-    list_display = ('donor', 'amount', 'date')
+    list_display = ('donor', 'amount', 'date', 'portfolio')
 admin.site.register(Donation, DonationAdmin)
 
 class DonorAdmin(admin.ModelAdmin):

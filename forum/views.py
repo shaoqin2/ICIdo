@@ -14,7 +14,7 @@ def display_category_events(request, param):
 
 def forum_home(request):
     d = {}
-    results = Event.objects.all()
+    results = Event.objects.all().order_by('-date')
     d['events'] = results
     print(results)
     return render(request, 'Forum.html', d)
