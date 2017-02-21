@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
+    amount_raised = models.FloatField(default=0)
 
 
     # def getThreePopular(self):
@@ -52,6 +53,7 @@ class Portfolio(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=5000)
     category = models.ManyToManyField(Category)
+    img = models.CharField(max_length=500, blank=True, default="")
 
     # TODO add this line with correct method call
     # image = models.UploadField()
@@ -67,13 +69,12 @@ class Donation(models.Model):
     amount = models.FloatField()
     date = models.DateField()
     honor = models.TextField(max_length = 1000)
+    usage = models.TextField(max_length = 1000, blank=True, default="")
 
     # TODO revise to change of the recurrence
-    recurrence = models.CharField(max_length=50)
+    recurrence = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return "{} from {} to {}".format(self.amount, self.donor, self.portfolio)
 
     # TODO override the save method to automatically update the total amount of a portfolio
-    
-

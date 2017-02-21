@@ -46,23 +46,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 <li><a onclick="openDonate()" >Donate</a></li>
                 <li><a href="#contact">Forum</a></li>
               </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="signup/">New User (Sign Up)</a></li>
-                    <li><a href="login/">Existing User (Log In)</a></li>
-                  </ul>
-                </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UserName <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{request.user.username}}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="profile/">My profile</a></li>
-                    <li><a href="logout/">Logout</a></li>
+                    <li><a href="/profile/">My profile</a></li>
+                    <li><a href="/logout/">Logout</a></li>
                   </ul>
                 </li>
           </ul>
@@ -132,24 +125,13 @@
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Project 1</h4>
-              <span class="text-muted">Description</span>
+              {% for port in portfolio %}
+              <img src={{port.img}} width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>{{port.name}}</h4>
+              <span class="text-muted">{{port.description}}</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Project 2</h4>
-              <span class="text-muted">Description</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Project 3</h4>
-              <span class="text-muted">Description</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Project 4</h4>
-              <span class="text-muted">Description</span>
+              {% endfor %}
             </div>
           </div>
 
@@ -160,34 +142,25 @@
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <th style="width: 15%">Portfolio</th>
                   <th>Amount</th>
                   <th>Date</th>
-                  <th>Status</th>
+                  <th>Honoring</th>
+                  <th>Impact</th>
                 </tr>
               </thead>
               <tbody>
+                {% for don in donate_history%}
                 <tr>
-                  <td>1</td>
-                  <td>Women’s Innovation Fund</td>
-                  <td>$25000</td>
-                  <td>Dec 2016</td>
-                  <td>Active</td>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{don.donor.first_name}}</td>
+                  <td>{{don.portfolio.name}}</td>
+                  <td>${{don.amount}}</td>
+                  <td>{{don.date}}</td>
+                  <td>{{don.honor}}</td>
+                  <td>{{don.usage}}</td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Veteran’s Innovation Fund</td>
-                  <td>$1470</td>
-                  <td>Feb 2017</td>
-                  <td>Closed</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Portfolio Name</td>
-                  <td>$40000</td>
-                  <td>May 2016</td>
-                  <td>Active</td>
-                </tr>
-                
+                {% endfor %}
               </tbody>
             </table>
           </div>

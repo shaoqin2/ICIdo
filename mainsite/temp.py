@@ -1,5 +1,4 @@
-from models import Donor
-from models import Donation
+from models import *
 
 
 donation = Donation()
