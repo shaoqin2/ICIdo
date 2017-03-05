@@ -17,6 +17,3 @@ class DonorAdmin(admin.ModelAdmin):
     filter_horizontal = ('interest',)
 admin.site.register(Donor, DonorAdmin)
 
-# class CatagoryAdmin(admin.ModelAdmin)
-    # pass
-# admin.site.register(Catagory, StudentAdmin)

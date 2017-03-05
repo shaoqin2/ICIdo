@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from forum.models import Event
 
 
-# Create your views here.
 @login_required(login_url='/login/')
 def display_category_events(request, param):
     pass
