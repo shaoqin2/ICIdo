@@ -12,13 +12,13 @@ With this dynamic platform, we hope donors can see their money making different 
 
 ## Technology used
 
-    * Django
-    * Nginx
-    * Gunicorn
-    * PostGreSQL
-    * Amazon EC-2
-    * Amazon RDS
-    * Amazon D3
+* Django
+* Nginx
+* Gunicorn
+* PostGreSQL
+* Amazon EC-2
+* Amazon RDS
+* Amazon D3
 
 ## License
 
